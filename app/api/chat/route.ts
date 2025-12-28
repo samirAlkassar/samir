@@ -45,7 +45,7 @@ Now, respond to the following user message as Samir would:
 
 `;
 
-const apiKey = "AIzaSyBSRvR8-Zc-NNsDYn27Q4eTfaDI3VsA7C0";
+const apiKey = process.env.GEMINI_API_KEY || "";
 
 export const sendMessageToGemini = async (message: string, history: { role: 'user' | 'model', text: string }[]) => {
   if (!apiKey) {

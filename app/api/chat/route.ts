@@ -1,4 +1,5 @@
 import { GoogleGenAI } from "@google/genai";
+import { NextResponse } from "next/server";
 
 const SAMIR_SYSTEM_INSTRUCTION = `
 You are a personal assistant chatbot specifically for Samir Elkassar. 
@@ -45,42 +46,39 @@ Now, respond to the following user message as Samir would:
 
 `;
 
-const apiKey = process.env.GEMINI_API_KEY || "";
 
-export const sendMessageToGemini = async (message: string, history: { role: 'user' | 'model', text: string }[]) => {
-  if (!apiKey) {
-    throw new Error("Gemini API key is not configured.");
-  }
-
-  const ai = new GoogleGenAI({ apiKey });
-  
-  // Convert history to Gemini format
-  const contents = history.map(h => ({
-    role: h.role,
-    parts: [{ text: h.text }]
-  }));
-
-  // Add the new message
-  contents.push({
-    role: 'user',
-    parts: [{ text: message }]
-  });
-
+export async function POST(req: Request) {
   try {
+    const { message, history } = await req.json();
+
+    // ✅ Get API key at runtime
+    const apiKey = process.env.GEMINI_API_KEY;
+    if (!apiKey) throw new Error("Gemini API key not configured.");
+
+    const ai = new GoogleGenAI({ apiKey });
+
+    // Convert history to Gemini format
+    const contents = history.map((h: any) => ({
+      role: h.role,
+      parts: [{ text: h.text }],
+    }));
+
+    contents.push({ role: "user", parts: [{ text: message }] });
+
     const response = await ai.models.generateContent({
-      model: 'gemini-3-flash-preview',
+      model: "gemini-3-flash-preview",
       contents,
       config: {
         systemInstruction: SAMIR_SYSTEM_INSTRUCTION,
         temperature: 0.7,
         topP: 0.8,
         topK: 40,
-      }
+      },
     });
 
-    return response.text || "I'm sorry, I couldn't process that request.";
-  } catch (error) {
-    console.error("Gemini API Error:", error);
-    return "I'm currently experiencing some technical difficulties. Please try again later or contact Samir directly.";
+    return NextResponse.json({ reply: response.text || "I don't know." });
+  } catch (err) {
+    console.error(err);
+    return NextResponse.json({ reply: "Error: cannot process request." }, { status: 500 });
   }
-};
+}

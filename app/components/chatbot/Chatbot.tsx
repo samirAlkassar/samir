@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from 'react';
-import { sendMessageToGemini } from '../../api/chat/route';
-import { Bot, SendHorizonal } from 'lucide-react';
+import { Bot } from 'lucide-react';
 import ChatHeader from './ChatHeader';
 import ChatInput from './ChatInput';
 
@@ -29,23 +28,33 @@ const Chatbot: React.FC = () => {
     scrollToBottom();
   }, [messages, isTyping]);
 
-  const handleSendMessage = async () => {
-    if (!inputValue.trim() || isTyping) return;
+const handleSendMessage = async () => {
+  if (!inputValue.trim() || isTyping) return;
 
-    const userMessage = inputValue;
-    setMessages(prev => [...prev, { role: 'user', text: userMessage }]);
-    setInputValue('');
-    setIsTyping(true);
+  const userMessage = inputValue;
+  setMessages(prev => [...prev, { role: 'user', text: userMessage }]);
+  setInputValue('');
+  setIsTyping(true);
 
-    try {
-      const response = await sendMessageToGemini(userMessage, messages);
-      setMessages(prev => [...prev, { role: 'model', text: response }]);
-    } catch (error) {
-      setMessages(prev => [...prev, { role: 'model', text: "Sorry, I had trouble connecting. Please try again." }]);
-    } finally {
-      setIsTyping(false);
-    }
-  };
+  try {
+    const res = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: userMessage, history: messages }),
+    });
+
+    const data = await res.json();
+
+    setMessages(prev => [...prev, { role: 'model', text: data.reply }]);
+  } catch (error) {
+    setMessages(prev => [
+      ...prev,
+      { role: 'model', text: "Sorry, I had trouble connecting. Please try again." }
+    ]);
+  } finally {
+    setIsTyping(false);
+  }
+};
 
   return (
     <div className="fixed bottom-3 right-3 md:bottom-6 md:right-6 z-30 flex flex-col items-end pl-3">

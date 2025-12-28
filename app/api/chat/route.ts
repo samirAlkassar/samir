@@ -7,6 +7,7 @@ You will ONLY answer questions about Samir and his professional or personal cont
 
 Samir’s information:
 - Name: Samir Elkassar
+- Age: 24
 - Role: Frontend Developer
 - Skills: React, Next.js, TypeScript, Tailwind, Node.js, MongoDB, Firebase
 - Projects: Ezz-eldeen e-commerce bookstore app, Zenk, HDTC (programming courses platform), personal portfolio
@@ -52,7 +53,7 @@ export async function POST(req: Request) {
     const { message, history } = await req.json();
 
     // ✅ Get API key at runtime
-    const apiKey = process.env.GEMINI_API_KEY;
+    const apiKey = process.env.API_KEY;
     if (!apiKey) throw new Error("Gemini API key not configured.");
 
     const ai = new GoogleGenAI({ apiKey });

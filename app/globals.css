@@ -34,6 +34,17 @@ html {
   --font-calistoga: var(--font-calistoga);
 }
 
+:root[data-theme="dark"] {
+  --background: #1c231f;
+  --foreground: #e6ece7;
+
+  --primary: #7fc49a;
+  --secondary: #3a443e;
+  --accent: #9ecfa4;
+  --muted: #262f2a;
+}
+
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -42,8 +53,4 @@ html {
   --color-secondary: var(--secondary);
   --color-accent: var(--accent);
   --color-muted: var(--muted);
-}
-
-.font-calistoga {
-  font-family: var(--font-calistoga), sans-serif;
 }

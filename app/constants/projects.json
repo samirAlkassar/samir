@@ -1,0 +1,58 @@
+[
+  {
+    "title": "Ezz-Eldeen",
+    "description": "A fully responsive e-commerce web application built for a local business, featuring dynamic product listings, a clean and intuitive user interface, and smooth user interactions across all devices.",
+    "image": "/images/Ezz-eldeen.png",
+    "tags": ["React", "Vanilla CSS", "Local Storage", "UI/UX"],
+    "live": "https://bookshop-e-commerce.vercel.app/",
+    "github": "https://github.com/samirAlkassar/Bookshop-e-commerce"
+  },
+  {
+    "title": "HDTC",
+    "description": "An online programming courses platform that provides structured learning content, user authentication, a personalized dashboard, and a fully responsive design for an optimal learning experience.",
+    "image": "/images/hdtc.png",
+    "tags": ["React", "Vite", "REST API", "Tailwind CSS", "Laravel"],
+    "live": "https://hdtc-front-beta-4tx4.vercel.app/",
+    "github": "https://github.com/samirAlkassar/hdtc_front_beta"
+  },
+  {
+    "title": "Mawja",
+    "description": "A social media platform that enables users to create posts, like and comment on content, reply to discussions, and connect with friends, all presented through a modern and fully responsive user interface.",
+    "image": "/images/mawja.png",
+    "tags": ["Next.js", "Tailwind CSS", "Real-time Data", "Node.js", "Express.js", "MongoDB"],
+    "live": "https://mawja.vercel.app/",
+    "github": "https://github.com/samirAlkassar/social-app"
+  },
+  {
+    "title": "Zink",
+    "description": "A productivity-focused web application designed to help users manage projects and tasks efficiently, featuring real-time data synchronization and a scalable architecture to support future growth.",
+    "image": "/images/zink.png",
+    "tags": ["Next.js", "Firebase", "State Management", "Productivity"],
+    "live": "https://zink-liart.vercel.app/",
+    "github": "https://github.com/samirAlkassar/zink"
+  },
+  {
+    "title": "Quiz App",
+    "description": "An interactive quiz application that allows users to answer timed questions, track their score, and receive instant feedback, with a clean and responsive user interface.",
+    "image": "/images/mawja.png",
+    "tags": ["React", "API Integration", "State Management", "Responsive Design"],
+    "live": "#",
+    "github": "#"
+  },
+  {
+    "title": "Reflex (Reflex.dev Clone)",
+    "description": "A modern landing page inspired by Reflex.dev, focusing on smooth animations, clean typography, and a polished developer-focused user experience.",
+    "image": "/images/mawja.png",
+    "tags": ["Next.js", "Tailwind CSS", "Framer Motion", "UI/UX"],
+    "live": "#",
+    "github": "#"
+  },
+  {
+    "title": "Linear (Linear.app Clone)",
+    "description": "A frontend clone of Linear.app that replicates its sleek interface, smooth interactions, and structured layout to demonstrate attention to detail and advanced UI implementation skills.",
+    "image": "/images/mawja.png",
+    "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Advanced UI"],
+    "live": "#",
+    "github": "#"
+  }
+]

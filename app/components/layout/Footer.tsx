@@ -28,7 +28,7 @@ const Footer = () => {
                         <Facebook size={20}/>
                     </a>
                     <a 
-                        href="samir.alkcar@gmail.com"
+                        href="mailto:samir.alkcar@gmail.com"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="h-10 w-10 bg-muted/5 flex items-center justify-center rounded-full cursor-pointer hover:bg-muted transition-colors duration-100 ease-in">

@@ -16,7 +16,7 @@ const Hero = () => {
   const links = [
     {icon: Linkedin, link: "https://www.linkedin.com/in/samir-elkassar-17a3a523a/"},
     {icon: Github, link: "https://github.com/samirAlkassar"},
-    {icon: Mail, link: "samir.alkcar@gmail.com"}
+    {icon: Mail, link: "mailto:samir.alkcar@gmail.com"}
   ]
 
   const container = {

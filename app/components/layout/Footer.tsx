@@ -1,4 +1,4 @@
-import { Facebook, Github, Linkedin, Mail } from "lucide-react"
+import { Facebook, Github, Linkedin, Mail, Youtube } from "lucide-react"
 
 const Footer = () => {
     return (
@@ -12,6 +12,13 @@ const Footer = () => {
                         rel="noopener noreferrer"
                         className="h-10 w-10 bg-muted/5 flex items-center justify-center rounded-full cursor-pointer hover:bg-muted transition-colors duration-100 ease-in">
                         <Linkedin size={20}/>
+                    </a>
+                    <a 
+                        href="https://www.youtube.com/@samiralkassar2864"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="h-10 w-10 bg-muted/5 flex items-center justify-center rounded-full cursor-pointer hover:bg-muted transition-colors duration-100 ease-in">
+                        <Youtube size={20}/>
                     </a>
                     <a 
                         href="https://github.com/samirAlkassar"

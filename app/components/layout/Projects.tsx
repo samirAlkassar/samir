@@ -21,11 +21,7 @@ const Projects = () => {
             <div
               key={index}
               className="group block rounded-lg sm:rounded-xl overflow-hidden shadow-md p-2 sm:p-4 border-primary/20 border">
-              <div className={`hover:[&_div]:flex cursor-pointer relative h-58 w-full overflow-hidden rounded-lg sm:rounded-lg p-3 ${
-                              project.title === "Ezz-Eldeen" ? "bg-orange-300" :
-                              project.title === "HDTC" ? "bg-blue-300" :
-                              project.title === "Mawja" ? "bg-slate-600" :
-                              project.title === "Zink" && "bg-gray-400"}`}>
+              <div className={`hover:[&_div]:flex cursor-pointer relative h-58 w-full overflow-hidden rounded-lg sm:rounded-lg p-3 ${project.theme ? project.theme : "bg-green-400"}`}>
                 <img
                   src={project.image}
                   alt={project.title}

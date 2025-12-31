@@ -4,6 +4,7 @@
     "description": "A fully responsive e-commerce web application built for a local business, featuring dynamic product listings, a clean and intuitive user interface, and smooth user interactions across all devices.",
     "image": "/images/Ezz-eldeen.png",
     "tags": ["React", "Vanilla CSS", "Local Storage", "UI/UX"],
+    "theme": "bg-orange-400/50",
     "live": "https://bookshop-e-commerce.vercel.app/",
     "github": "https://github.com/samirAlkassar/Bookshop-e-commerce"
   },
@@ -12,6 +13,7 @@
     "description": "An online programming courses platform that provides structured learning content, user authentication, a personalized dashboard, and a fully responsive design for an optimal learning experience.",
     "image": "/images/hdtc.png",
     "tags": ["React", "Vite", "REST API", "Tailwind CSS", "Laravel"],
+    "theme": "bg-blue-400/50",
     "live": "https://hdtc-front-beta-4tx4.vercel.app/",
     "github": "https://github.com/samirAlkassar/hdtc_front_beta"
   },
@@ -20,6 +22,7 @@
     "description": "A social media platform that enables users to create posts, like and comment on content, reply to discussions, and connect with friends, all presented through a modern and fully responsive user interface.",
     "image": "/images/mawja.png",
     "tags": ["Next.js", "Tailwind CSS", "Real-time Data", "Node.js", "Express.js", "MongoDB"],
+    "theme": "bg-slate-600/50",
     "live": "https://mawja.vercel.app/",
     "github": "https://github.com/samirAlkassar/social-app"
   },
@@ -28,31 +31,45 @@
     "description": "A productivity-focused web application designed to help users manage projects and tasks efficiently, featuring real-time data synchronization and a scalable architecture to support future growth.",
     "image": "/images/zink.png",
     "tags": ["Next.js", "Firebase", "State Management", "Productivity"],
+    "theme": "bg-slate-300",
     "live": "https://zink-liart.vercel.app/",
     "github": "https://github.com/samirAlkassar/zink"
   },
   {
     "title": "Quiz App",
-    "description": "An interactive quiz application that allows users to answer timed questions, track their score, and receive instant feedback, with a clean and responsive user interface.",
-    "image": "/images/mawja.png",
-    "tags": ["React", "API Integration", "State Management", "Responsive Design"],
-    "live": "#",
-    "github": "#"
+    "description": "A fast-paced quiz application with timed questions, instant feedback, and score tracking, designed to demonstrate efficient state management and interactive UI patterns.",
+    "image": "/images/quiz-app.png",
+    "tags": ["React", "State Management", "Hooks", "Interactive UI", "Responsive Design"],
+    "theme": "bg-amber-400/50",
+    "live": "https://react-practice-liard-nine.vercel.app/",
+    "github": "https://github.com/samirAlkassar/react-practice"
   },
   {
     "title": "Reflex (Reflex.dev Clone)",
-    "description": "A modern landing page inspired by Reflex.dev, focusing on smooth animations, clean typography, and a polished developer-focused user experience.",
-    "image": "/images/mawja.png",
-    "tags": ["Next.js", "Tailwind CSS", "Framer Motion", "UI/UX"],
-    "live": "#",
-    "github": "#"
+    "description": "A polished landing page clone inspired by Reflex.dev, showcasing smooth animations, refined typography, and a strong focus on developer-oriented UI/UX design.",
+    "image": "/images/reflect-clone.png",
+    "tags": ["Next.js", "Tailwind CSS", "Framer Motion", "Animations", "UI/UX"],
+    "theme": "bg-purple-400/50",
+    "live": "https://reflect-clone.vercel.app/",
+    "github": "https://github.com/samirAlkassar/Reflect-clone"
   },
   {
-    "title": "Linear (Linear.app Clone)",
-    "description": "A frontend clone of Linear.app that replicates its sleek interface, smooth interactions, and structured layout to demonstrate attention to detail and advanced UI implementation skills.",
-    "image": "/images/mawja.png",
-    "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Advanced UI"],
-    "live": "#",
-    "github": "#"
+    "title": "Airbnb Clone (Linear.app Clone)",
+    "description": "A sophisticated Airbnb clone featuring advanced UI components, responsive design, and seamless user interactions, built to replicate the look and feel of the original platform while showcasing modern web development techniques.",
+    "image": "/images/airbnb.png",
+    "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Design Systems", "Advanced UI"],
+    "theme": "bg-slate-600",
+    "live": "https://airbnb-clone-yfkv.vercel.app/",
+    "github": "https://github.com/samirAlkassar/Airbnb-clone"
+  },
+  {
+    "title": "Portfolio Website",
+    "description": "A personal portfolio website built to showcase projects, skills, and experience, featuring smooth animations, a clean layout, and a modern developer-focused aesthetic.",
+    "image": "/images/portfolio.png",
+    "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Personal Branding"],
+    "theme": "bg-neutral-800",
+    "live": "https://portfolio-swart-two-14.vercel.app/",
+    "github": "https://github.com/samirAlkassar/Portfolio"
   }
 ]
+

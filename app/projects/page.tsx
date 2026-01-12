@@ -1,6 +1,9 @@
+"use client";
+
 import { Github, Link } from "lucide-react";
 import projects from "../constants/projects.json";
 import { Calistoga } from "next/font/google";
+import { useRouter } from "next/navigation";
 
 const calistoga = Calistoga({
   subsets: ["latin"],
@@ -8,6 +11,7 @@ const calistoga = Calistoga({
 });
 
 const Projects = () => {
+  const router = useRouter();
   return (
     <section id="projects">
       <div className="max-w-3xl mx-auto py-10 px-6 sm:px-4">
@@ -49,6 +53,16 @@ const Projects = () => {
                     </span>
                   ))}
                 </div>
+              </div>
+              <div className="flex gap-2 mt-2 mb-1 md:hidden">
+                <button onClick={()=>router.push(project.live)} className="bg-foreground text-sm text-white font-medium px-10 py-1.5 rounded-md flex items-center justify-center gap-1 cursor-pointer hover:bg-foreground/80 active:scale-95 transition-all duration-75 ease-in">
+                  <p>Live</p>
+                  <Link size={14}/>
+                </button>
+                <button onClick={()=>router.push(project.github)} className="bg-accent/50 text-sm rounded-lg px-2 py-1.5 font-medium flex items-center justify-center gap-1 cursor-pointer hover:bg-accent/30 active:scale-95 transition-all duration-75 ease-in">
+                  <p>GitHub</p>
+                  <Github size={14}/>
+                </button>
               </div>
             </div>
           ))}

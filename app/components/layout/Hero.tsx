@@ -5,6 +5,8 @@ import Image from "next/image";
 import samirImg from "../../../public/images/samir.png";
 import { motion } from "framer-motion";
 import { Calistoga } from "next/font/google";
+import BlurText from "@/app/components/ui/BlurText";
+import LightRays from "../LightRays";
 
 const calistoga = Calistoga({
   subsets: ["latin"],
@@ -14,9 +16,9 @@ const calistoga = Calistoga({
 const Hero = () => {
   const name = "Samir Elkasar";
   const links = [
-    {icon: Linkedin, link: "https://www.linkedin.com/in/samir-elkassar-17a3a523a/"},
-    {icon: Github, link: "https://github.com/samirAlkassar"},
-    {icon: Mail, link: "mailto:samir.alkcar@gmail.com"}
+    { icon: Linkedin, link: "https://www.linkedin.com/in/samir-elkassar-17a3a523a/" },
+    { icon: Github, link: "https://github.com/samirAlkassar" },
+    { icon: Mail, link: "mailto:samir.alkcar@gmail.com" }
   ]
 
   const container = {
@@ -34,21 +36,29 @@ const Hero = () => {
   };
 
   return (
-    <main id="home">
-      <div className="max-w-3xl mx-auto flex flex-col-reverse md:flex-row items-start justify-between py-10 mt-0 sm:mt-6 gap-10 px-6 sm:px-4">
+    <main id="home" className="relative overflow-hidden">
+      {/* LightRays Background */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
+        <LightRays
+          raysOrigin="top-right"
+          raysColor="#ffffff"
+          raysSpeed={0.5}
+          lightSpread={1.2}
+          rayLength={1.5}
+          pulsating={true}
+          followMouse={true}
+        />
+      </div>
+
+      <div className="max-w-3xl mx-auto flex flex-col-reverse md:flex-row items-start justify-between py-10 mt-0 sm:mt-6 gap-10 px-6 sm:px-4 relative z-10">
         <div className="flex-1">
-          <motion.h1
-            className={`text-4xl md:text-5xl font-extrabold text-foreground flex flex-wrap ${calistoga.className}`}
-            variants={container}
-            initial="hidden"
-            animate="visible"
-          >
-            {name.split("").map((char, index) => (
-              <motion.span key={index} variants={child}>
-                {char === " " ? "\u00A0" : char}
-              </motion.span>
-            ))}
-          </motion.h1>
+          <BlurText
+            text="Samir Elkasar"
+            delay={100}
+            animateBy="letters"
+            direction="top"
+            className={`text-3xl md:text-5xl font-extrabold text-foreground flex flex-wrap ${calistoga.className}`}
+          />
 
           <div className="flex items-center justify-start gap-2 mt-0.5 md:mt-2 opacity-90">
             <p className="text-base md:text-lg font-medium mt-1">24 years old</p>
@@ -65,14 +75,14 @@ const Hero = () => {
           </p>
 
           <div className="flex gap-4 mt-6 md:mt-4">
-          <a
-            href="./resume/Samir_Resume_2025.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-base text-background bg-foreground hover:bg-foreground/90 transition-colors duration-75 ease-in rounded-md px-4 py-2 flex items-center justify-center gap-2 cursor-pointer">
-            <p>Resume</p>
-            <FileDown size={18} />
-          </a>
+            <a
+              href="./resume/Samir_Resume_2025.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-base text-background bg-foreground hover:bg-foreground/90 transition-colors duration-75 ease-in rounded-md px-4 py-2 flex items-center justify-center gap-2 cursor-pointer">
+              <p>Resume</p>
+              <FileDown size={18} />
+            </a>
 
 
             <div className="flex gap-1 sm:gap-2">
@@ -83,20 +93,33 @@ const Hero = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="h-10 w-10 bg-primary/80 flex items-center justify-center text-white rounded-full cursor-pointer hover:bg-primary/75 transition-colors duration-150 ease-in">
-                  <Icon.icon size={20}/>
+                  <Icon.icon size={20} />
                 </a>
               ))}
             </div>
           </div>
         </div>
 
-        <div className="relative w-50 h-60 overflow-hidden rounded-xl bg-linear-to-t from-foreground via-foreground/95 to-foreground/90 mx-auto sm:mx-0">
-          <Image
-            src={samirImg}
-            alt="Samir"
-            fill
-            className="object-cover scale-180 transition-transform duration-500 pr-4"/>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, filter: "blur(10px)" }}
+          animate={{ opacity: 1, filter: "blur(0px)" }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          className="relative group mx-auto sm:mx-0 shrink-0"
+        >
+          {/* Secondary Border (Offset) */}
+          <div className="absolute inset-0 border-10 border-primary/80 rounded-2xl transform translate-x-2 translate-y-2 transition-transform duration-500 group-hover:translate-x-1.5 group-hover:translate-y-1.5" />
+
+          {/* Main Image Container */}
+          <div className="relative w-50 h-60 overflow-hidden rounded-2xl border-2 border-primary/10 bg-linear-to-t from-foreground via-foreground/95 to-foreground/90 z-10">
+            <Image
+              src={samirImg}
+              alt="Samir"
+              fill
+              priority
+              className="object-cover scale-180 pr-4"
+            />
+          </div>
+        </motion.div>
       </div>
     </main>
   );

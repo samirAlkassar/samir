@@ -33,9 +33,8 @@ const Navbar = () => {
     }
     };
 
-
     return (
-        <nav className="sticky top-0 z-10 backdrop-blur-sm bg-background/50">
+        <nav className="sticky top-0 z-20 backdrop-blur-sm bg-background/50">
             <div className="max-w-3xl mx-auto py-4 flex items-center justify-between px-6 sm:px-4">
                 <button 
                     onClick={toggleTheme}
@@ -43,9 +42,9 @@ const Navbar = () => {
                     {theme === "dark" ? <Sun /> : <BsMoonStars />}
                 </button>
                 <ul className="hidden md:flex">
-                    <li><a className="px-4 py-2 rounded-lg hover:opacity-85 transition-opacity duration-100 ease-in text-base font-medium" href="/">Home</a></li>
-                    <li><a className="px-4 py-2 rounded-lg hover:opacity-85 transition-opacity duration-100 ease-in text-base font-medium" href="/projects">Projects</a></li>
-                    <li><a className="px-4 py-2 rounded-lg hover:opacity-85 transition-opacity duration-100 ease-in text-base font-medium" href="/contact">Contact</a></li>
+                    <li><a className="px-4 py-2 rounded-lg hover:opacity-85 transition-opacity duration-100 ease-in text-base font-semibold" href="/">Home</a></li>
+                    <li><a className="px-4 py-2 rounded-lg hover:opacity-85 transition-opacity duration-100 ease-in text-base font-semibold" href="/projects">Projects</a></li>
+                    <li><a className="px-4 py-2 rounded-lg hover:opacity-85 transition-opacity duration-100 ease-in text-base font-semibold" href="/contact">Contact</a></li>
                 </ul>
                 <button 
                     onClick={()=>setShowModal((prev)=> !prev)}

@@ -2,7 +2,7 @@
   {
     "title": "Ezz-Eldeen",
     "description": "A fully responsive e-commerce web application built for a local business, featuring dynamic product listings, a clean and intuitive user interface, and smooth user interactions across all devices.",
-    "image": "/images/Ezz-eldeen.png",
+    "image": "/images/Ezz-eldeen-home.png",
     "tags": ["React", "Vanilla CSS", "Local Storage", "UI/UX"],
     "theme": "bg-orange-400/50",
     "live": "https://ezz-eldeen.vercel.app/",

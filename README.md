@@ -1,10 +1,12 @@
+[![Website](https://img.shields.io/badge/Live-Demo-blue)](https://samir-puce.vercel.app)
+
 # Samir Elkasar - Frontend Portfolio
 
 A premium, high-performance portfolio website built with **Next.js 16 (Turbopack)**, **React 19**, and **Tailwind CSS 4**. This project showcases a blend of clean architecture, sophisticated animations, and high-end visual effects.
 
 ![Portfolio Preview](/public/images/Ezz-eldeen-home.png)
 
-## 🚀 Key Features
+## Key Features
 
 - **Premium Animations**: Powered by **Framer Motion** and **GSAP**, featuring staggered entry animations, blurred transitions, and a custom circular ripple effect for mobile navigation.
 - **Advanced WebGL Effects**: A custom-built **LightRays** component using **OGL** for dynamic, high-performance background lighting that follows the mouse.
@@ -13,7 +15,7 @@ A premium, high-performance portfolio website built with **Next.js 16 (Turbopack
 - **Performance Optimized**: Leveraging Next.js 16 latest features, including the Turbopack build engine for near-instant development and optimized production bundles.
 - **Semantic UI**: Built with accessible, semantic HTML5 for better SEO and screen reader support.
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Framework**: [Next.js 16](https://nextjs.org/)
 - **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
@@ -23,7 +25,7 @@ A premium, high-performance portfolio website built with **Next.js 16 (Turbopack
 - **WebGL Engine**: [OGL](https://github.com/o-g-l/ogl)
 - **Type Safety**: [TypeScript](https://www.typescriptlang.org/)
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 ├── app/
@@ -38,7 +40,7 @@ A premium, high-performance portfolio website built with **Next.js 16 (Turbopack
 └── tailwind.config.js   # Style configuration
 ```
 
-## 🛠️ Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -61,10 +63,10 @@ A premium, high-performance portfolio website built with **Next.js 16 (Turbopack
    ```
 4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## 📄 License
+## License
 
 This project is open-source and available under the [MIT License](LICENSE).
 
 ---
 
-Crafted with ❤️ by Samir Elkasar
+Crafted with 🤍 by Samir Elkasar

@@ -16,7 +16,7 @@ const calistoga = Calistoga({
 const BEST_PROJ = {
     title: "Ezz-Eldeen",
     description: "A fully responsive e-commerce web application built for a local business, featuring dynamic product listings, a clean and intuitive user interface, and smooth user interactions across all devices.",
-    image: "/images/Ezz-Eldeen.png",
+    image: "/images/Ezz-Eldeen-home.png",
     tags: ["React", "Vanilla CSS", "Local Storage", "UI/UX"],
     theme: "bg-orange-400/50",
     live: "https://ezz-eldeen.vercel.app/",
@@ -91,7 +91,12 @@ const BestProject = () => {
                     </div>
                     <div className="flex-1 relative hidden md:block">
                         <div className="bg-primary/10 w-full h-full p-6">
-                            <Image src={BEST_PROJ.image} alt={BEST_PROJ.title} width={500} height={500} className="rounded-lg h-full w-full absolute object-cover" />
+                            <Image
+                                src={BEST_PROJ.image}
+                                alt={BEST_PROJ.title}
+                                width={500}
+                                height={500}
+                                className="rounded-lg bg-primary/20 h-full w-full absolute object-contain mt-13"/>
                         </div>
                     </div>
                 </motion.div>

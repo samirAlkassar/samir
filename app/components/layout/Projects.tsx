@@ -52,7 +52,7 @@ const Projects = () => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
-                className="group block h-full rounded-lg sm:rounded-xl overflow-hidden shadow-md p-2 sm:p-4 border-primary/20 border bg-background"
+                className="group block h-full rounded-lg sm:rounded-xl overflow-hidden shadow-md p-2 sm:p-4 border-primary/20 border bg-background hover:bg-foreground/5"
               >
                 <BorderBeam
                   className="opacity-0 group-hover:opacity-100 transition-opacity duration-1000 z-30"
@@ -103,7 +103,7 @@ const Projects = () => {
                   </div>
                 </div>
                 <div className="flex gap-2 mt-2 mb-1 md:hidden relative z-20">
-                  <button onClick={() => router.push(project.live)} className="bg-foreground text-sm text-white font-medium px-10 py-1.5 rounded-md flex items-center justify-center gap-1 cursor-pointer hover:bg-foreground/80 active:scale-95 transition-all duration-75 ease-in">
+                  <button onClick={() => router.push(project.live)} className="bg-foreground text-sm text-background font-medium px-10 py-1.5 rounded-md flex items-center justify-center gap-1 cursor-pointer hover:bg-foreground/80 active:scale-95 transition-all duration-75 ease-in">
                     <p>Live</p>
                     <Link size={14} />
                   </button>

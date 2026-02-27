@@ -7,7 +7,7 @@ import SmoothScroll from "@/app/components/ui/SmoothScroll";
 
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["400"], // Regular
+  weight: ["400"],
   variable: "--font-inter",
 });
 
@@ -25,8 +25,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} antialiased`}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.variable} antialiased selection:bg-primary/30`}>
+        <div className="fixed inset-0 z-[-1] pointer-events-none overflow-hidden">
+          <div className="absolute inset-0 bg-noise opacity-[0.03] dark:opacity-[0.05]" />
+          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[120px] dark:opacity-10 opacity-0 transition-opacity duration-1000" />
+          <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[120px] dark:opacity-10 opacity-0 transition-opacity duration-1000" />
+        </div>
         <SmoothScroll>
           <ClickRipple />
           {children}

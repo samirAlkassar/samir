@@ -60,7 +60,6 @@ html {
   /* warm cream */
   --foreground: #2f3e34;
   /* deep olive text */
-
   --primary: #70b488;
   /* soft sage green */
   --secondary: #d6cfc4;
@@ -68,89 +67,60 @@ html {
   --accent: #8fb683;
   /* pastel green */
   --muted: #ece8e2;
-  /* page background */
-  --font-calistoga: var(--font-calistoga);
-  --radius: 0.625rem;
+  /* page background / muted blocks */
+  --muted-foreground: #6b7280;
 
-  --card: var(--background);
+  --card: #f8f6f4;
   --card-foreground: var(--foreground);
   --popover: var(--background);
   --popover-foreground: var(--foreground);
   --primary-foreground: #f1eeeb;
   --secondary-foreground: var(--foreground);
-  --muted-foreground: #6b7280;
   --accent-foreground: var(--foreground);
   --destructive: oklch(0.577 0.245 27.325);
   --border: color-mix(in srgb, var(--foreground) 10%, transparent);
   --input: color-mix(in srgb, var(--foreground) 10%, transparent);
   --ring: var(--primary);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: var(--background);
-  --sidebar-foreground: var(--foreground);
-  --sidebar-primary: var(--primary);
-  --sidebar-primary-foreground: var(--primary-foreground);
-  --sidebar-accent: var(--accent);
-  --sidebar-accent-foreground: var(--foreground);
-  --sidebar-border: var(--border);
-  --sidebar-ring: var(--ring);
-}
-
-:root[data-theme="dark"] {
-  --background: #1c231f;
-  --foreground: #e6ece7;
-
-  --primary: #7fc49a;
-  --secondary: #3a443e;
-  --accent: #9ecfa4;
-  --muted: #262f2a;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-
-  --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
-  --color-accent: var(--accent);
-  --color-muted: var(--muted);
+  --radius: 0.625rem;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  /* Base Surfaces */
+  --background: #050807;                 /* Deeper obsidian */
+  --foreground: #e6f1eb;                 /* Softer premium white */
+
+  /* Brand */
+  --primary: #598d7c;                    /* Refined emerald (less neon) */
+  --primary-foreground: #04110c;
+
+  --accent: #2dd4a3;                     /* Polished mint highlight */
+  --accent-foreground: #03130d;
+
+  /* Secondary Layers */
+  --secondary: #0f1c16;                  /* Rich forest layer */
+  --secondary-foreground: #dce8e1;
+
+  --muted: #0a1410;                      /* Deep soft layer */
+  --muted-foreground: #6f8578;
+
+  /* Cards / Elevated Surfaces */
+  --card: #0b1511;                       /* Slightly lifted from background */
+  --card-foreground: var(--foreground);
+
+  --popover: #0c1713;
+  --popover-foreground: var(--foreground);
+
+  /* Borders / Inputs */
+  --border: rgba(46, 196, 140, 0.15);
+  --input: rgba(46, 196, 140, 0.07);
+  --ring: #ffffff;
+}
+
+@layer utilities {
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.02;
+  }
 }
 
 .animate-border-beam {

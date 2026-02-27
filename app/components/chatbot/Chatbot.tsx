@@ -28,33 +28,33 @@ const Chatbot: React.FC = () => {
     scrollToBottom();
   }, [messages, isTyping]);
 
-const handleSendMessage = async () => {
-  if (!inputValue.trim() || isTyping) return;
+  const handleSendMessage = async () => {
+    if (!inputValue.trim() || isTyping) return;
 
-  const userMessage = inputValue;
-  setMessages(prev => [...prev, { role: 'user', text: userMessage }]);
-  setInputValue('');
-  setIsTyping(true);
+    const userMessage = inputValue;
+    setMessages(prev => [...prev, { role: 'user', text: userMessage }]);
+    setInputValue('');
+    setIsTyping(true);
 
-  try {
-    const res = await fetch('/api/chat', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: userMessage, history: messages }),
-    });
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: userMessage, history: messages }),
+      });
 
-    const data = await res.json();
+      const data = await res.json();
 
-    setMessages(prev => [...prev, { role: 'model', text: data.reply }]);
-  } catch (error) {
-    setMessages(prev => [
-      ...prev,
-      { role: 'model', text: "Sorry, I had trouble connecting. Please try again." }
-    ]);
-  } finally {
-    setIsTyping(false);
-  }
-};
+      setMessages(prev => [...prev, { role: 'model', text: data.reply }]);
+    } catch (error) {
+      setMessages(prev => [
+        ...prev,
+        { role: 'model', text: "Sorry, I had trouble connecting. Please try again." }
+      ]);
+    } finally {
+      setIsTyping(false);
+    }
+  };
 
   return (
     <div className="fixed bottom-3 right-3 md:bottom-6 md:right-6 z-30 flex flex-col items-end pl-3">
@@ -62,17 +62,16 @@ const handleSendMessage = async () => {
       {isOpen && (
         <div className="w-full sm:w-95 h-120 rounded-lg border border-secondary/50 bg-background flex flex-col mb-4 overflow-hidden shadow-lg backdrop-blur-sm animate-fade-up">
           {/* Header */}
-            <ChatHeader setIsOpen={setIsOpen}/>
+          <ChatHeader setIsOpen={setIsOpen} />
 
           {/* Messages Container */}
           <div className="grow overflow-y-auto p-6 space-y-3 scrollbar-hide">
             {messages.map((msg, idx) => (
               <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                <div className={`max-w-[85%] px-4 py-3 rounded-2xl text-sm border border-foreground/15 ${
-                  msg.role === 'user'
-                  ? 'bg-primary text-background rounded-tr-none'
-                  : 'bg-background text-foreground rounded-tl-none'
-                }`}>
+                <div className={`max-w-[85%] px-4 py-3 rounded-2xl text-sm border border-foreground/15 ${msg.role === 'user'
+                    ? 'bg-primary text-background rounded-tr-none'
+                    : 'bg-background text-foreground rounded-tl-none'
+                  }`}>
                   {msg.text}
                 </div>
               </div>
@@ -90,17 +89,17 @@ const handleSendMessage = async () => {
           </div>
 
           {/* Input Area */}
-            <ChatInput inputValue={inputValue} setInputValue={setInputValue} handleSendMessage={handleSendMessage} isTyping={isTyping}/>
+          <ChatInput inputValue={inputValue} setInputValue={setInputValue} handleSendMessage={handleSendMessage} isTyping={isTyping} />
         </div>
       )}
 
       {/* Floating Toggle Button */}
-      <button 
+      <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-14 h-14 rounded-lg flex text-gray-800 items-center justify-center shadow-lg transition-all active:scale-[97%] group cursor-pointer bg-accent hover:bg-accent/80">
-        <Bot size={28}/>
+        className="w-14 h-14 rounded-lg flex text-foreground items-center justify-center shadow-lg transition-all active:scale-[97%] group cursor-pointer bg-accent hover:bg-accent/80">
+        <Bot size={28} />
       </button>
-      <FirstMessage showModal={isOpen}/>
+      <FirstMessage showModal={isOpen} />
     </div>
   );
 };
@@ -110,7 +109,7 @@ const FirstMessage = ({ showModal }: { showModal: boolean }) => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const time = showModal ?  0 : 6000
+    const time = showModal ? 0 : 6000
     const hasSeenMessage = localStorage.getItem("firstMessageShown");
 
     if (!showModal && !hasSeenMessage) {

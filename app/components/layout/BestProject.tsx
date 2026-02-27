@@ -50,7 +50,7 @@ const BestProject = () => {
                     whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                     viewport={{ once: true, amount: 0.2 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="flex flex-col md:flex-row group relative rounded-xl overflow-hidden shadow-md border-primary/20 border bg-background">
+                    className="flex flex-col md:flex-row group relative rounded-xl overflow-hidden shadow-md border-foreground/10 border bg-background">
 
                     <BorderBeam
                         className="opacity-0 group-hover:opacity-100 transition-opacity duration-1000 z-40"

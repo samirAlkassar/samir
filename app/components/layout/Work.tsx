@@ -46,7 +46,7 @@ const Work = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
         target: containerRef,
-        offset: ["start 50%", "end 70%"]
+        offset: ["start 50%", "end 50%"]
     });
 
     const scaleY = useSpring(scrollYProgress, {
@@ -63,21 +63,16 @@ const Work = () => {
                     delay={100}
                     animateBy="words"
                     direction="top"
-                    className={`text-3xl font-semibold font-calistoga ${calistoga.className}`}
-                />
+                    className={`text-3xl font-semibold font-calistoga ${calistoga.className}`}/>
 
                 <div ref={containerRef} className="relative mt-10 space-y-12">
-                    {/* Continuous Vertical Timeline Line (Grows from 0) */}
-                    <div className="absolute left-[7px] md:left-[7px] top-2 bottom-6 w-[2px]">
+                    <div className="absolute left-[7px] md:left-[7px] top-2 -bottom-4 w-[2px]">
                         <motion.div
                             style={{ scaleY, originY: 0 }}
-                            className="w-full h-full bg-primary shadow-[0_0_12px_var(--primary)]"
-                        />
+                            className="w-full h-full bg-primary shadow-[0_0_12px_var(--primary)]"/>
                     </div>
 
                     {experiences.map((exp, index) => {
-                        // Calculate a scroll threshold for each dot based on its index
-                        // This makes dots "activate" as the line passes them
                         const threshold = index / (experiences.length > 1 ? experiences.length - 0.5 : 1);
 
                         return (
@@ -88,9 +83,7 @@ const Work = () => {
                                 initial="hidden"
                                 whileInView="visible"
                                 viewport={{ once: true, amount: 0.2 }}
-                                className="relative flex gap-6 md:gap-10 group"
-                            >
-                                {/* Dot with dynamic background fill */}
+                                className="relative flex gap-6 md:gap-10 group">
                                 <div className="flex flex-col items-center">
                                     <motion.div
                                         style={{
@@ -106,28 +99,25 @@ const Work = () => {
                                             )
                                         }}
                                         transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                                        className="relative w-4 h-4 rounded-full border-2 border-primary z-10 transition-colors duration-300"
-                                    >
+                                        className="relative w-4 h-4 rounded-full border-2 border-primary z-10 transition-colors duration-300">
                                         <motion.div
                                             style={{
                                                 opacity: useTransform(scrollYProgress, [threshold - 0.1, threshold], [1, 0])
                                             }}
-                                            className="absolute inset-0 rounded-full bg-primary/20 animate-ping group-hover:hidden"
-                                        />
+                                            className="absolute inset-0 rounded-full bg-primary/20 animate-ping group-hover:hidden"/>
                                     </motion.div>
                                 </div>
 
-                                {/* Experience Content */}
-                                <div className="flex-1 pb-4">
-                                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-1 mb-2">
+                                <div className="flex-1 pb-2">
+                                    <div className="flex flex-row md:items-start justify-between gap-1 mb-1">
                                         <h4 className={`text-2xl font-bold tracking-tight text-foreground transition-colors duration-300 group-hover:text-primary`}>
                                             {exp.company}
                                         </h4>
-                                        <span className="text-sm font-semibold px-3 py-1 rounded-full bg-muted border border-primary/10 text-foreground/60">
+                                        <span className="text-xs md:text-sm font-semibold px-2 md:px-3 py-0.5 md:py-1 rounded-full bg-muted border border-primary/10 text-foreground/80">
                                             {exp.period}
                                         </span>
                                     </div>
-                                    <p className="text-lg font-bold text-primary/90 mb-3">{exp.role}</p>
+                                    <p className="text-lg font-semibold text-primary mb-2">{exp.role}</p>
                                     <p className="text-foreground/80 leading-relaxed max-w-2xl mb-4 font-medium italic">
                                         {exp.description}
                                     </p>

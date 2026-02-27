@@ -13,10 +13,14 @@ const Navbar = () => {
 
     useEffect(() => {
         const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
+        const root = document.documentElement;
 
         if (savedTheme === "dark") {
-            document.documentElement.setAttribute("data-theme", "dark");
+            root.classList.add("dark");
             setTheme("dark");
+        } else {
+            root.classList.remove("dark");
+            setTheme("light");
         }
     }, []);
 
@@ -25,11 +29,11 @@ const Navbar = () => {
         const root = document.documentElement;
 
         if (theme === "dark") {
-            root.removeAttribute("data-theme");
+            root.classList.remove("dark");
             localStorage.setItem("theme", "light");
             setTheme("light");
         } else {
-            root.setAttribute("data-theme", "dark");
+            root.classList.add("dark");
             localStorage.setItem("theme", "dark");
             setTheme("dark");
         }
@@ -41,8 +45,7 @@ const Navbar = () => {
                 <Magnetic>
                     <button
                         onClick={toggleTheme}
-                        className="group relative h-10 w-10 flex items-center justify-center rounded-xl bg-muted/20 border border-primary/10 hover:border-primary/30 transition-all duration-300 cursor-pointer overflow-hidden backdrop-blur-md shadow-sm"
-                    >
+                        className="group relative h-10 w-10 flex items-center justify-center rounded-xl bg-muted/20 border border-primary/10 hover:border-primary/30 transition-all duration-300 cursor-pointer overflow-hidden backdrop-blur-md shadow-sm">
                         <AnimatePresence mode="wait" initial={false}>
                             {theme === "dark" ? (
                                 <motion.div

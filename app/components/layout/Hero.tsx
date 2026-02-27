@@ -8,6 +8,7 @@ import { Calistoga } from "next/font/google";
 import BlurText from "@/app/components/ui/BlurText";
 import LightRays from "../LightRays";
 import Magnetic from "@/app/components/ui/Magnetic";
+import { useTheme } from "next-themes";
 
 const calistoga = Calistoga({
   subsets: ["latin"],
@@ -16,6 +17,7 @@ const calistoga = Calistoga({
 
 const Hero = () => {
   const name = "Samir Elkasar";
+  const { theme } = useTheme();
   const links = [
     { icon: Linkedin, link: "https://www.linkedin.com/in/samir-elkassar-17a3a523a/" },
     { icon: Github, link: "https://github.com/samirAlkassar" },
@@ -38,16 +40,20 @@ const Hero = () => {
 
   return (
     <main id="home" className="relative overflow-hidden">
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
-        <LightRays
-          raysOrigin="top-right"
-          raysColor="#ffffff"
-          raysSpeed={0.5}
-          lightSpread={1.2}
-          rayLength={1.5}
-          pulsating={true}
-          followMouse={true}
-        />
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-40 dark:opacity-60">
+        {
+          theme === "dark" && (
+            <LightRays
+              raysOrigin="top-right"
+              raysColor="#10b981"
+              raysSpeed={0.4}
+              lightSpread={1.4}
+              rayLength={1.7}
+              pulsating={true}
+              followMouse={true}
+            />
+          )
+        }
       </div>
 
       <div className="max-w-3xl mx-auto flex flex-col-reverse md:flex-row items-start justify-between py-10 mt-0 sm:mt-6 gap-10 px-6 sm:px-4 relative z-10">
@@ -57,12 +63,12 @@ const Hero = () => {
             delay={100}
             animateBy="letters"
             direction="top"
-            className={`text-3xl md:text-5xl font-extrabold text-foreground flex flex-wrap ${calistoga.className}`}
+            className={`text-4xl md:text-5xl font-extrabold text-foreground flex flex-wrap ${calistoga.className}`}
           />
 
           <div className="flex items-center justify-start gap-2 mt-0.5 md:mt-2 opacity-90">
-            <p className="text-base md:text-lg font-medium mt-1">24 years old</p>
-            <span className="text-base md:text-lg font-medium mt-1 flex items-center justify-center gap-1">
+            <p className="text-sm md:text-lg font-medium mt-1">24 years old</p>
+            <span className="text-sm md:text-lg font-medium mt-1 flex items-center justify-center gap-1">
               <MapPin size={18} />
               <p>Egypt</p>
             </span>
@@ -106,17 +112,17 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0, filter: "blur(10px)" }}
           animate={{ opacity: 1, filter: "blur(0px)" }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
           className="relative group mx-auto sm:mx-0 shrink-0">
           <div className="absolute inset-0 border-10 border-primary/80 rounded-2xl transform translate-x-2 translate-y-2 transition-transform duration-500 group-hover:translate-x-1.5 group-hover:translate-y-1.5" />
 
-          <div className="relative w-50 h-60 overflow-hidden rounded-2xl border-2 border-primary/10 bg-linear-to-t from-foreground via-foreground/95 to-foreground/90 z-10">
+          <div className="relative w-50 h-60 overflow-hidden rounded-2xl border-2 border-primary/20 bg-linear-to-t from-primary/20 via-primary/5 to-transparent z-10">
             <Image
               src={samirImg}
               alt="Samir"
               fill
               priority
-              className="object-cover scale-180 pr-4"
+              className="object-cover scale-180 pr-3 transition-all duration-700"
             />
           </div>
         </motion.div>

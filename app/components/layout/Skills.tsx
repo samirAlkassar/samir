@@ -46,7 +46,7 @@ const Skills = () => {
           direction="top"
           className={`text-3xl font-semibold font-calistoga ${calistoga.className}`}
         />
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4 mt-8">
           {skills.map((skill, index) => {
             const Icon = skill.icon;
             return (
@@ -57,22 +57,20 @@ const Skills = () => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.1 }}
-                className="relative group flex items-center gap-4 p-4 rounded-xl border border-foreground/5 bg-foreground/2 hover:bg-foreground/4 transition-[background-color,border-color,transform] duration-500"
-              >
+                className="relative group flex items-center gap-3 md:gap-4 p-4 rounded-xl border border-foreground/5 bg-foreground/2 hover:bg-foreground/4 transition-[background-color,border-color,transform] duration-500">
                 <BorderBeam
                   size={60}
                   duration={15}
                   delay={index * 2}
                   opacity={0.4}
-                  className="opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                />
+                  className="opacity-0 group-hover:opacity-100 transition-opacity duration-500"/>
 
                 <div className={`flex shrink-0 items-center justify-center h-10 w-10 rounded-lg bg-linear-to-br ${skill.color} to-transparent border border-foreground/5 group-hover:scale-110 transition-transform duration-500`}>
                   <Icon size={20} className="text-foreground/80 group-hover:text-foreground transition-colors duration-500" />
                 </div>
 
                 <div className="flex flex-col">
-                  <span className="text-sm font-semibold tracking-tight text-foreground/80 group-hover:text-foreground transition-colors duration-500">
+                  <span className="text-xs md:text-sm font-semibold tracking-tight text-foreground/80 group-hover:text-foreground transition-colors duration-500">
                     {skill.name}
                   </span>
                 </div>

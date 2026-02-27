@@ -37,7 +37,7 @@ const itemVariants: Variants = {
 
 const Skills = () => {
   return (
-    <section id="skills">
+    <section id="skills" className="relative overflow-hidden">
       <div className="max-w-3xl mx-auto py-10 px-6 sm:px-4">
         <BlurText
           text="Skills"

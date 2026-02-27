@@ -3,10 +3,13 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Calistoga } from "next/font/google";
 import Chatbot from "@/app/components/chatbot/Chatbot";
+import ClickRipple from "@/app/components/ui/ClickRipple";
+import SmoothScroll from "@/app/components/ui/SmoothScroll";
+import Noise from "@/app/components/ui/Noise";
 
 const calistoga = Calistoga({
   subsets: ["latin"],
-  weight: "400", 
+  weight: "400",
   variable: "--font-calistoga",
 });
 
@@ -29,8 +32,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} antialiased`}>
-        {children}
-        <Chatbot />
+        <SmoothScroll>
+          <Noise />
+          <ClickRipple />
+          {children}
+          <Chatbot />
+        </SmoothScroll>
       </body>
     </html>
   );

@@ -25,7 +25,7 @@ const BEST_PROJ = {
 
 const BestProject = () => {
     return (
-        <section id="best-project" className="relative py-20">
+        <section id="best-project" className="relative py-20 overflow-x-hidden">
             <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full blur-[120px] opacity-20 z-0`} />
 
             <div className="max-w-3xl mx-auto px-6 sm:px-4 relative z-10">
@@ -49,7 +49,7 @@ const BestProject = () => {
                     initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
                     whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                     viewport={{ once: true, amount: 0.2 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
                     className="flex flex-col md:flex-row group relative rounded-xl overflow-hidden shadow-md border-primary/20 border">
                     <div className="flex-1 p-6">
                         <p className="text-xs font-semibold tracking-wider uppercase text-primary">Featured Project</p>

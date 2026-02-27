@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { Calistoga } from "next/font/google";
 import BlurText from "@/app/components/ui/BlurText";
 import LightRays from "../LightRays";
+import Magnetic from "@/app/components/ui/Magnetic";
 
 const calistoga = Calistoga({
   subsets: ["latin"],
@@ -75,26 +76,29 @@ const Hero = () => {
           </p>
 
           <div className="flex gap-4 mt-6 md:mt-4">
-            <a
-              href="./resume/Samir_Resume_2025.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-base text-background bg-foreground hover:bg-foreground/90 transition-colors duration-75 ease-in rounded-md px-4 py-2 flex items-center justify-center gap-2 cursor-pointer">
-              <p>Resume</p>
-              <FileDown size={18} />
-            </a>
+            <Magnetic>
+              <a
+                href="./resume/Samir_Resume_2025.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-base text-background bg-foreground hover:bg-foreground/90 transition-colors duration-75 ease-in rounded-md px-4 py-2 flex items-center justify-center gap-2 cursor-pointer">
+                <p>Resume</p>
+                <FileDown size={18} />
+              </a>
+            </Magnetic>
 
 
             <div className="flex gap-1 sm:gap-2">
               {links.map((Icon, idx) => (
-                <a
-                  key={idx}
-                  href={Icon.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="h-10 w-10 bg-primary/80 flex items-center justify-center text-white rounded-full cursor-pointer hover:bg-primary/75 transition-colors duration-150 ease-in">
-                  <Icon.icon size={20} />
-                </a>
+                <Magnetic key={idx}>
+                  <a
+                    href={Icon.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="h-10 w-10 bg-primary/80 flex items-center justify-center text-white rounded-full cursor-pointer hover:bg-primary/75 transition-colors duration-150 ease-in">
+                    <Icon.icon size={20} />
+                  </a>
+                </Magnetic>
               ))}
             </div>
           </div>

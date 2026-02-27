@@ -22,7 +22,7 @@ const itemVariants: Variants = {
     filter: "blur(0px)",
     transition: {
       delay: (i % 2) * 0.3, // Stagger pairs in the grid
-      duration: 0.8,
+      duration: 0.6,
       ease: "easeOut"
     }
   }),

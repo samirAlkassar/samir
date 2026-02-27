@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { BsMoonStars } from "react-icons/bs";
 import { motion, AnimatePresence } from "framer-motion";
+import Magnetic from "@/app/components/ui/Magnetic";
 
 const Navbar = () => {
     const [showModal, setShowModal] = useState<boolean>(false);
@@ -37,15 +38,45 @@ const Navbar = () => {
     return (
         <nav className="sticky top-0 z-20 backdrop-blur-sm bg-background/50">
             <div className="max-w-3xl mx-auto py-4 flex items-center justify-between px-6 sm:px-4">
-                <button
-                    onClick={toggleTheme}
-                    className={`cursor-pointer h-8 w-8 flex items-center justify-center rounded-lg ${theme === "dark" ? "hover:bg-white/20 text-amber-500" : "hover:bg-primary/20 text-blue-400"}`}>
-                    {theme === "dark" ? <Sun /> : <BsMoonStars />}
-                </button>
+                <Magnetic>
+                    <button
+                        onClick={toggleTheme}
+                        className="group relative h-10 w-10 flex items-center justify-center rounded-xl bg-muted/20 border border-primary/10 hover:border-primary/30 transition-all duration-300 cursor-pointer overflow-hidden backdrop-blur-md shadow-sm"
+                    >
+                        <AnimatePresence mode="wait" initial={false}>
+                            {theme === "dark" ? (
+                                <motion.div
+                                    key="sun"
+                                    initial={{ y: 20, opacity: 0, rotate: -90 }}
+                                    animate={{ y: 0, opacity: 1, rotate: 0 }}
+                                    exit={{ y: -20, opacity: 0, rotate: 90 }}
+                                    transition={{ duration: 0.3, ease: "backOut" }}
+                                    className="text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]"
+                                >
+                                    <Sun size={20} fill="currentColor" />
+                                </motion.div>
+                            ) : (
+                                <motion.div
+                                    key="moon"
+                                    initial={{ y: 20, opacity: 0, rotate: -90 }}
+                                    animate={{ y: 0, opacity: 1, rotate: 0 }}
+                                    exit={{ y: -20, opacity: 0, rotate: 90 }}
+                                    transition={{ duration: 0.3, ease: "backOut" }}
+                                    className="text-blue-500 drop-shadow-[0_0_8px_rgba(59,130,246,0.4)]"
+                                >
+                                    <BsMoonStars size={18} fill="currentColor" />
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+
+                        {/* Subtle background glow */}
+                        <div className={`absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-xl ${theme === 'dark' ? 'bg-amber-400' : 'bg-blue-500'}`} />
+                    </button>
+                </Magnetic>
                 <ul className="hidden md:flex">
-                    <li><a className="px-4 py-2 rounded-lg hover:opacity-85 transition-opacity duration-100 ease-in text-base font-semibold" href="/">Home</a></li>
-                    <li><a className="px-4 py-2 rounded-lg hover:opacity-85 transition-opacity duration-100 ease-in text-base font-semibold" href="/projects">Projects</a></li>
-                    <li><a className="px-4 py-2 rounded-lg hover:opacity-85 transition-opacity duration-100 ease-in text-base font-semibold" href="/contact">Contact</a></li>
+                    <Magnetic><li><a className="px-4 py-2 rounded-lg hover:opacity-85 transition-opacity duration-100 ease-in text-base font-semibold" href="/">Home</a></li></Magnetic>
+                    <Magnetic><li><a className="px-4 py-2 rounded-lg hover:opacity-85 transition-opacity duration-100 ease-in text-base font-semibold" href="/projects">Projects</a></li></Magnetic>
+                    <Magnetic><li><a className="px-4 py-2 rounded-lg hover:opacity-85 transition-opacity duration-100 ease-in text-base font-semibold" href="/contact">Contact</a></li></Magnetic>
                 </ul>
                 <button
                     onClick={() => setShowModal((prev) => !prev)}

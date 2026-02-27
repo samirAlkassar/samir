@@ -9,6 +9,7 @@ import BlurText from "@/app/components/ui/BlurText";
 import { motion, Variants } from "framer-motion";
 import TiltCard from "../ui/TiltCard";
 import { BorderBeam } from "../ui/BorderBeam";
+import Image from "next/image";
 
 const calistoga = Calistoga({
   subsets: ["latin"],
@@ -71,9 +72,11 @@ const Projects = () => {
                   opacity={0.4}
                 />
                 <div className={`group/image cursor-pointer relative md:h-58 w-full overflow-hidden rounded-lg sm:rounded-lg p-3 z-20 ${project.theme ? project.theme : "bg-green-400"}`}>
-                  <img
+                  <Image
                     src={project.image}
                     alt={project.title}
+                    width={1000}
+                    height={1000}
                     className="object-cover w-full h-full rounded-lg sm:rounded-lg transition-transform duration-500 group-hover/image:scale-110" />
                   <div className="absolute inset-0 flex items-center justify-center gap-4 bg-foreground/60 opacity-0 group-hover/image:opacity-100 transition-all duration-300 ease-in-out backdrop-blur-sm px-4">
                     <a

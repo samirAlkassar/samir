@@ -116,10 +116,11 @@ const Hero = () => {
           className="relative group mx-auto sm:mx-0 shrink-0">
           <div className="absolute inset-0 border-10 border-primary/80 rounded-2xl transform translate-x-2 translate-y-2 transition-transform duration-500 group-hover:translate-x-1.5 group-hover:translate-y-1.5" />
 
-          <div className="relative w-50 h-60 overflow-hidden rounded-2xl border-2 border-primary/20 bg-linear-to-t from-primary/20 via-primary/5 to-transparent z-10">
+          <div className="relative w-50 h-60 overflow-hidden rounded-2xl border-2 border-primary/20 bg-linear-to-t from-foreground/20 via-foreground/5 to-transparent z-10">
             <Image
               src={samirImg}
               alt="Samir"
+              placeholder="blur"
               fill
               priority
               className="object-cover scale-180 pr-3 transition-all duration-700"

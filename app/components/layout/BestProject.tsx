@@ -78,7 +78,7 @@ const BestProject = () => {
                     <div className="flex-1 p-6 relative z-30">
                         <p className="text-xs font-semibold tracking-wider uppercase text-primary">Featured Project</p>
                         <h2 className="text-3xl font-extrabold">{BEST_PROJ.title}</h2>
-                        <p className="text-base text-gray-500 mt-2">{BEST_PROJ.description}</p>
+                        <p className="text-base text-foreground/80 mt-2">{BEST_PROJ.description}</p>
                         <div className="flex flex-wrap gap-2 mt-4">
                             {BEST_PROJ.tags.map((tag, index) => (
                                 <span

@@ -9,7 +9,7 @@ import Magnetic from "@/app/components/ui/Magnetic";
 
 const Navbar = () => {
     const [showModal, setShowModal] = useState<boolean>(false);
-    const [theme, setTheme] = useState<"light" | "dark">("light");
+    const [theme, setTheme] = useState<"light" | "dark">("dark");
 
     useEffect(() => {
         const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
@@ -19,8 +19,8 @@ const Navbar = () => {
             root.classList.add("dark");
             setTheme("dark");
         } else {
-            root.classList.remove("dark");
-            setTheme("light");
+            root.classList.add("dark");
+            setTheme("dark");
         }
     }, []);
 

@@ -10,6 +10,7 @@ import BlurText from "@/app/components/ui/BlurText";
 
 import { motion, Variants } from "framer-motion";
 import { BorderBeam } from "../components/ui/BorderBeam";
+import Image from "next/image";
 
 const calistoga = Calistoga({
   subsets: ["latin"],
@@ -60,10 +61,12 @@ const Projects = () => {
                 opacity={0.5}
                 className="opacity-0 group-hover:opacity-100 transition-opacity duration-1000 z-30"
               />
-              <div className={`group/image cursor-pointer relative h-58 w-full overflow-hidden rounded-lg p-3 ${project.theme ? project.theme : "bg-green-400"}`}>
-                <img
+              <div className={`group/image cursor-pointer relative h-56 sm:h-80 md:h-58 aspect-square w-full overflow-hidden rounded-lg p-3 ${project.theme ? project.theme : "bg-green-400"}`}>
+                <Image
                   src={project.image}
                   alt={project.title}
+                  width={1000}
+                  height={1000}
                   className="object-cover w-full h-full rounded-lg transition-transform duration-500 group-hover/image:scale-110" />
                 <div className="absolute inset-0 flex items-center justify-center gap-4 bg-foreground/20 opacity-0 group-hover/image:opacity-100 transition-all duration-300 ease-in-out backdrop-blur-xs">
                   <a
@@ -93,7 +96,7 @@ const Projects = () => {
                 </div>
               </div>
               <div className="flex gap-2 mt-2 mb-1 md:hidden">
-                <button onClick={() => router.push(project.live)} className="bg-foreground text-sm text-white font-medium px-10 py-1.5 rounded-md flex items-center justify-center gap-1 cursor-pointer hover:bg-foreground/80 active:scale-95 transition-all duration-75 ease-in">
+                <button onClick={() => router.push(project.live)} className="bg-foreground text-sm text-background font-medium px-10 py-1.5 rounded-md flex items-center justify-center gap-1 cursor-pointer hover:bg-foreground/80 active:scale-95 transition-all duration-75 ease-in">
                   <p>Live</p>
                   <Link size={14} />
                 </button>

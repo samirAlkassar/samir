@@ -65,7 +65,7 @@ const Work = () => {
                     direction="top"
                     className={`text-3xl font-semibold font-calistoga ${calistoga.className}`}/>
 
-                <div ref={containerRef} className="relative mt-10 space-y-12">
+                <div ref={containerRef} className="relative mt-8 space-y-12">
                     <div className="absolute left-[7px] md:left-[7px] top-2 -bottom-4 w-[2px]">
                         <motion.div
                             style={{ scaleY, originY: 0 }}

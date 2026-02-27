@@ -26,12 +26,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} antialiased selection:bg-primary/30`}>
-        <div className="fixed inset-0 z-[-1] pointer-events-none overflow-hidden">
-          <div className="absolute inset-0 bg-noise opacity-[0.03] dark:opacity-[0.05]" />
-          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[120px] dark:opacity-10 opacity-0 transition-opacity duration-1000" />
-          <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[120px] dark:opacity-10 opacity-0 transition-opacity duration-1000" />
-        </div>
+      <body suppressHydrationWarning className={`${inter.variable} antialiased selection:bg-primary/30`}>
+<div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
+  {/* subtle grain */}
+  <div className="absolute inset-0 bg-noise opacity-[0.04]" />
+
+  {/* top subtle vignette */}
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(167,139,250,0.06),transparent_40%)] dark:bg-[radial-gradient(circle_at_40%_20%,rgba(167,139,250,0.08),transparent_40%)]" />
+
+  {/* bottom subtle vignette */}
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(167,139,250,0.05),transparent_40%)] dark:bg-[radial-gradient(circle_at_80%_80%,rgba(167,139,250,0.07),transparent_40%)]" />
+</div>
         <SmoothScroll>
           <ClickRipple />
           {children}

@@ -21,8 +21,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} antialiased`}>
+    <html suppressHydrationWarning lang="en">
+      <body suppressHydrationWarning className={`${inter.variable} antialiased`}>
         <Navbar/>
         {children}
         <Footer />

@@ -23,7 +23,6 @@ const SmoothScroll = ({ children }: { children: React.ReactNode }) => {
 
         requestAnimationFrame(raf);
 
-        // Update markers or effects that depend on scroll on click/nav
         document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
             anchor.addEventListener("click", function (this: HTMLAnchorElement, e) {
                 e.preventDefault();

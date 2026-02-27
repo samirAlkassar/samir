@@ -6,17 +6,17 @@ import { Calistoga } from "next/font/google";
 import BlurText from "@/app/components/ui/BlurText";
 import Image from "next/image";
 import Link from "next/link";
+import { BorderBeam } from "../ui/BorderBeam";
 
 const calistoga = Calistoga({
     subsets: ["latin"],
     weight: "400",
 });
 
-// Easily update this object to change the showcased project
 const BEST_PROJ = {
     title: "Ezz-Eldeen",
     description: "A fully responsive e-commerce web application built for a local business, featuring dynamic product listings, a clean and intuitive user interface, and smooth user interactions across all devices.",
-    image: "/images/Ezz-Eldeen-home.png",
+    image: "/images/Ezz-eldeen-home.png",
     tags: ["React", "Vanilla CSS", "Local Storage", "UI/UX"],
     theme: "bg-orange-400/50",
     live: "https://ezz-eldeen.vercel.app/",
@@ -50,8 +50,32 @@ const BestProject = () => {
                     whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                     viewport={{ once: true, amount: 0.2 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="flex flex-col md:flex-row group relative rounded-xl overflow-hidden shadow-md border-primary/20 border">
-                    <div className="flex-1 p-6">
+                    className="flex flex-col md:flex-row group relative rounded-xl overflow-hidden shadow-md border-primary/20 border bg-background">
+
+                    <BorderBeam
+                        className="opacity-0 group-hover:opacity-100 transition-opacity duration-1000 z-40"
+                        size={150}
+                        duration={20}
+                        opacity={0.6}
+                    />
+                    <BorderBeam
+                        className="opacity-0 group-hover:opacity-100 transition-opacity duration-1000 z-40"
+                        size={100}
+                        duration={35}
+                        delay={5}
+                        colorFrom="#8fb683"
+                        opacity={0.5}
+                    />
+                    <BorderBeam
+                        className="opacity-0 group-hover:opacity-100 transition-opacity duration-1000 z-40"
+                        size={200}
+                        duration={25}
+                        delay={12}
+                        opacity={0.55}
+                    />
+
+
+                    <div className="flex-1 p-6 relative z-30">
                         <p className="text-xs font-semibold tracking-wider uppercase text-primary">Featured Project</p>
                         <h2 className="text-3xl font-extrabold">{BEST_PROJ.title}</h2>
                         <p className="text-base text-gray-500 mt-2">{BEST_PROJ.description}</p>
@@ -89,14 +113,14 @@ const BestProject = () => {
                             <ArrowRight size={14} />
                         </Link>
                     </div>
-                    <div className="flex-1 relative hidden md:block">
+                    <div className="flex-1 relative hidden md:block z-30">
                         <div className="bg-primary/10 w-full h-full p-6">
                             <Image
                                 src={BEST_PROJ.image}
                                 alt={BEST_PROJ.title}
                                 width={500}
                                 height={500}
-                                className="rounded-lg bg-primary/20 h-full w-full absolute object-contain mt-13"/>
+                                className="rounded-lg bg-primary/20 h-full w-full absolute object-contain mt-13" />
                         </div>
                     </div>
                 </motion.div>

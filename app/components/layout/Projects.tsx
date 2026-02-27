@@ -8,6 +8,7 @@ import BlurText from "@/app/components/ui/BlurText";
 
 import { motion, Variants } from "framer-motion";
 import TiltCard from "../ui/TiltCard";
+import { BorderBeam } from "../ui/BorderBeam";
 
 const calistoga = Calistoga({
   subsets: ["latin"],
@@ -51,9 +52,25 @@ const Projects = () => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
-                className="group block h-full rounded-lg sm:rounded-xl overflow-hidden shadow-md p-2 sm:p-4 border-primary/20 border"
+                className="group block h-full rounded-lg sm:rounded-xl overflow-hidden shadow-md p-2 sm:p-4 border-primary/20 border bg-background"
               >
-                <div className={`group/image cursor-pointer relative md:h-58 w-full overflow-hidden rounded-lg sm:rounded-lg p-3 ${project.theme ? project.theme : "bg-green-400"}`}>
+                <BorderBeam
+                  className="opacity-0 group-hover:opacity-100 transition-opacity duration-1000 z-30"
+                  size={100}
+                  duration={25}
+                  borderRadius={12}
+                  opacity={0.5}
+                />
+                <BorderBeam
+                  className="opacity-0 group-hover:opacity-100 transition-opacity duration-1000 z-30"
+                  size={80}
+                  duration={40}
+                  delay={8}
+                  borderRadius={12}
+                  colorFrom="#8fb683"
+                  opacity={0.4}
+                />
+                <div className={`group/image cursor-pointer relative md:h-58 w-full overflow-hidden rounded-lg sm:rounded-lg p-3 z-20 ${project.theme ? project.theme : "bg-green-400"}`}>
                   <img
                     src={project.image}
                     alt={project.title}
@@ -74,7 +91,7 @@ const Projects = () => {
                   </div>
                 </div>
 
-                <div className="py-4 px-2">
+                <div className="py-4 px-2 relative z-20">
                   <h3 className="text-lg font-medium mb-1">{project.title}</h3>
                   <p className="text-foreground/80 mb-2 text-sm">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mt-2">
@@ -85,7 +102,7 @@ const Projects = () => {
                     ))}
                   </div>
                 </div>
-                <div className="flex gap-2 mt-2 mb-1 md:hidden">
+                <div className="flex gap-2 mt-2 mb-1 md:hidden relative z-20">
                   <button onClick={() => router.push(project.live)} className="bg-foreground text-sm text-white font-medium px-10 py-1.5 rounded-md flex items-center justify-center gap-1 cursor-pointer hover:bg-foreground/80 active:scale-95 transition-all duration-75 ease-in">
                     <p>Live</p>
                     <Link size={14} />

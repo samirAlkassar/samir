@@ -7,7 +7,9 @@ import { useRouter } from "next/navigation";
 
 import BlurText from "@/app/components/ui/BlurText";
 
+
 import { motion, Variants } from "framer-motion";
+import { BorderBeam } from "../components/ui/BorderBeam";
 
 const calistoga = Calistoga({
   subsets: ["latin"],
@@ -21,7 +23,7 @@ const itemVariants: Variants = {
     y: 0,
     filter: "blur(0px)",
     transition: {
-      delay: (i % 2) * 0.3, // Stagger pairs in the grid
+      delay: (i % 2) * 0.3,
       duration: 0.6,
       ease: "easeOut"
     }
@@ -50,7 +52,14 @@ const Projects = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
-              className="group block rounded-xl overflow-hidden shadow-md p-4 border-primary/20 border">
+              className="group relative block rounded-xl overflow-hidden shadow-md p-4 border-primary/20 border bg-background"
+            >
+              <BorderBeam
+                size={200}
+                duration={30}
+                opacity={0.5}
+                className="opacity-0 group-hover:opacity-100 transition-opacity duration-1000 z-30"
+              />
               <div className={`group/image cursor-pointer relative h-58 w-full overflow-hidden rounded-lg p-3 ${project.theme ? project.theme : "bg-green-400"}`}>
                 <img
                   src={project.image}

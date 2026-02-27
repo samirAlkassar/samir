@@ -51,8 +51,7 @@ const Navbar = () => {
                                     animate={{ y: 0, opacity: 1, rotate: 0 }}
                                     exit={{ y: -20, opacity: 0, rotate: 90 }}
                                     transition={{ duration: 0.3, ease: "backOut" }}
-                                    className="text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]"
-                                >
+                                    className="text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]">
                                     <Sun size={20} fill="currentColor" />
                                 </motion.div>
                             ) : (
@@ -62,14 +61,12 @@ const Navbar = () => {
                                     animate={{ y: 0, opacity: 1, rotate: 0 }}
                                     exit={{ y: -20, opacity: 0, rotate: 90 }}
                                     transition={{ duration: 0.3, ease: "backOut" }}
-                                    className="text-blue-500 drop-shadow-[0_0_8px_rgba(59,130,246,0.4)]"
-                                >
+                                    className="text-blue-500 drop-shadow-[0_0_8px_rgba(59,130,246,0.4)]">
                                     <BsMoonStars size={18} fill="currentColor" />
                                 </motion.div>
                             )}
                         </AnimatePresence>
 
-                        {/* Subtle background glow */}
                         <div className={`absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-xl ${theme === 'dark' ? 'bg-amber-400' : 'bg-blue-500'}`} />
                     </button>
                 </Magnetic>
@@ -111,8 +108,7 @@ const Modal = ({ showModal, setShowModal }: { showModal: boolean, setShowModal: 
                         restDelta: 0.01,
                         damping: 11
                     }}
-                    className="fixed inset-0 bg-foreground z-100 md:hidden flex flex-col items-end overflow-hidden"
-                >
+                    className="fixed inset-0 bg-foreground z-100 md:hidden flex flex-col items-end overflow-hidden">
                     <button onClick={() => setShowModal(false)} className="text-muted w-9 h-9 m-4 cursor-pointer">
                         <X size={30} />
                     </button>
@@ -126,13 +122,11 @@ const Modal = ({ showModal, setShowModal }: { showModal: boolean, setShowModal: 
                                 key={item.name}
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.3 + (i * 0.1), duration: 0.5 }}
-                            >
+                                transition={{ delay: 0.3 + (i * 0.1), duration: 0.5 }}>
                                 <a
                                     onClick={() => setShowModal(false)}
                                     className="block w-full text-center py-4 text-muted rounded-lg hover:opacity-85 transition-opacity duration-100 ease-in text-4xl font-medium"
-                                    href={item.href}
-                                >
+                                    href={item.href}>
                                     {item.name}
                                 </a>
                             </motion.li>

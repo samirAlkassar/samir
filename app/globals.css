@@ -56,13 +56,19 @@ html {
 }
 
 :root {
-  --background: #f1eeeb;        /* warm cream */
-  --foreground: #2f3e34;        /* deep olive text */
+  --background: #f1eeeb;
+  /* warm cream */
+  --foreground: #2f3e34;
+  /* deep olive text */
 
-  --primary: #70b488;           /* soft sage green */
-  --secondary: #d6cfc4;         /* beige clay */
-  --accent: #8fb683;            /* pastel green */
-  --muted: #ece8e2;             /* page background */
+  --primary: #70b488;
+  /* soft sage green */
+  --secondary: #d6cfc4;
+  /* beige clay */
+  --accent: #8fb683;
+  /* pastel green */
+  --muted: #ece8e2;
+  /* page background */
   --font-calistoga: var(--font-calistoga);
   --radius: 0.625rem;
 
@@ -147,10 +153,27 @@ html {
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+.animate-border-beam {
+  animation: border-beam var(--duration) infinite linear;
+  animation-delay: var(--delay);
+}
+
+@keyframes border-beam {
+  0% {
+    offset-distance: 0%;
+  }
+
+  100% {
+    offset-distance: 100%;
+  }
+}
+
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }

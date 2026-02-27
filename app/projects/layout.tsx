@@ -6,7 +6,7 @@ import Footer from "../components/layout/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["400"], // Regular
+  weight: ["400"],
   variable: "--font-inter",
 });
 

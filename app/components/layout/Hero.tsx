@@ -38,7 +38,6 @@ const Hero = () => {
 
   return (
     <main id="home" className="relative overflow-hidden">
-      {/* LightRays Background */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
         <LightRays
           raysOrigin="top-right"
@@ -108,12 +107,9 @@ const Hero = () => {
           initial={{ opacity: 0, filter: "blur(10px)" }}
           animate={{ opacity: 1, filter: "blur(0px)" }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="relative group mx-auto sm:mx-0 shrink-0"
-        >
-          {/* Secondary Border (Offset) */}
+          className="relative group mx-auto sm:mx-0 shrink-0">
           <div className="absolute inset-0 border-10 border-primary/80 rounded-2xl transform translate-x-2 translate-y-2 transition-transform duration-500 group-hover:translate-x-1.5 group-hover:translate-y-1.5" />
 
-          {/* Main Image Container */}
           <div className="relative w-50 h-60 overflow-hidden rounded-2xl border-2 border-primary/10 bg-linear-to-t from-foreground via-foreground/95 to-foreground/90 z-10">
             <Image
               src={samirImg}

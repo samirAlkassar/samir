@@ -8,7 +8,7 @@ import Skills from "./components/layout/Skills";
 
 export default function Home() {
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <Navbar />
       <Hero />
       <Work />

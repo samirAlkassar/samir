@@ -148,3 +148,37 @@ html {
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes gfyCUb {
+  0% {
+    transform: rotateX(50deg);
+  }
+  25% {
+    transform: rotateX(0deg); transform: scale(0.95);
+  }
+  60%, to {
+    transform: none;
+  }
+}
+
+@keyframes fbvaXF {
+  0% {
+    opacity: 0;
+    animation-timing-function: cubic-bezier(0.74, 0.25, 0.76, 1);
+  }
+  10% {
+    opacity: 1;
+    animation-timing-function: cubic-bezier(0.12, 0.01, 0.08, 0.09);
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+
+.animate-image-rotate {
+  animation: gfyCUb 1800ms ease forwards;
+}
+
+.animate-image-glow {
+  animation: fbvaXF 4100ms 600ms ease-out forwards;
+}

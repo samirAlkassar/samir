@@ -7,6 +7,8 @@ import BlurText from "@/app/components/ui/BlurText";
 import Image from "next/image";
 import Link from "next/link";
 import { BorderBeam } from "../ui/BorderBeam";
+import { useInView } from "react-intersection-observer";
+import { twMerge } from "tailwind-merge";
 
 const calistoga = Calistoga({
     subsets: ["latin"],
@@ -17,15 +19,20 @@ const BEST_PROJ = {
     title: "Ezz-Eldeen",
     description: "A fully responsive e-commerce web application built for a local business, featuring dynamic product listings, a clean and intuitive user interface, and smooth user interactions across all devices.",
     image: "/images/Ezz-eldeen-home.png",
-    tags: ["React", "Vanilla CSS", "Local Storage", "UI/UX"],
+    tags: ["Next.js", "Typescript", "TailwindCSS", "Node.js", "MongoDB", "Framer Motion", "Next-intl"],
     theme: "bg-orange-400/50",
     live: "https://ezz-eldeen.vercel.app/",
     github: "https://github.com/samirAlkassar/Ezz-Eldeen"
 };
 
 const BestProject = () => {
+    const {ref, inView} = useInView({
+        threshold: 0.9,
+        triggerOnce: true
+    });
+    console.log(inView)
     return (
-        <section id="best-project" className="relative py-20 overflow-x-hidden">
+        <section id="best-project" className="relative py-20">
             <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full blur-[120px] opacity-20 z-0`} />
 
             <div className="max-w-3xl mx-auto px-6 sm:px-4 relative z-10">
@@ -44,14 +51,22 @@ const BestProject = () => {
                         Selected projects that showcase my skills and experience.
                     </p>
                 </div>
+                <div className="relative">
 
+                {inView && 
+                    <div className="bg-primary/80 blur-3xl animate-image-glow absolute inset-0 rounded-xl opacity-0"/>
+                }
                 <motion.div
-                    initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-                    whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                    ref={ref}
+                    initial={{ filter: "blur(2px)"}}
+                    whileInView={{ filter: "blur(0px)"}}
                     viewport={{ once: true, amount: 0.2 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="flex flex-col md:flex-row group relative rounded-xl overflow-hidden shadow-md border-foreground/10 border bg-background">
-
+                    transition={{ duration: 0.6, ease: "easeIn" }}
+                    className={twMerge(
+                        "relative flex flex-col md:flex-row group bg-background rounded-xl shadow-md border border-foreground/10",
+                        inView ? "animate-image-rotate" : "rotate-x-40",
+                    )}>
+                    
                     <BorderBeam
                         className="opacity-0 group-hover:opacity-100 transition-opacity duration-1000 z-40"
                         size={150}
@@ -113,7 +128,7 @@ const BestProject = () => {
                             <ArrowRight size={14} />
                         </Link>
                     </div>
-                    <div className="flex-1 relative hidden md:block z-30">
+                    <div className="flex-1 relative hidden md:block z-30 overflow-hidden rounded-br-lg">
                         <div className="bg-primary/10 w-full h-full p-6">
                             <Image
                                 src={BEST_PROJ.image}
@@ -124,6 +139,7 @@ const BestProject = () => {
                         </div>
                     </div>
                 </motion.div>
+                </div>
             </div>
         </section>
     );

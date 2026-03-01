@@ -8,7 +8,7 @@ import { Calistoga } from "next/font/google";
 import BlurText from "@/app/components/ui/BlurText";
 import LightRays from "../LightRays";
 import Magnetic from "@/app/components/ui/Magnetic";
-import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 const calistoga = Calistoga({
   subsets: ["latin"],
@@ -16,39 +16,27 @@ const calistoga = Calistoga({
 });
 
 const Hero = () => {
-  const name = "Samir Elkasar";
-  const { theme } = useTheme();
+  const [theme, setTheme] = useState<"light" | "dark" | null>(null);
+  useEffect(() => {
+    setTheme(localStorage.getItem("theme") as "light" | "dark" | null);
+  }, [])
   const links = [
     { icon: Linkedin, link: "https://www.linkedin.com/in/samir-elkassar-17a3a523a/" },
     { icon: Github, link: "https://github.com/samirAlkassar" },
     { icon: Mail, link: "mailto:samir.alkcar@gmail.com" }
   ]
 
-  const container = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.05,
-      },
-    },
-  };
-
-  const child = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.1 } },
-  };
-
   return (
     <main id="home" className="relative overflow-hidden">
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-40 dark:opacity-60">
+      <div className="absolute opacity-20 inset-0 z-0 pointer-events-none">
         {
           theme === "dark" && (
             <LightRays
               raysOrigin="top-right"
-              raysColor="#10b981"
+              raysColor="#ffffff"
               raysSpeed={0.4}
               lightSpread={1.4}
-              rayLength={1.7}
+              rayLength={0.3}
               pulsating={true}
               followMouse={true}
             />
@@ -60,8 +48,8 @@ const Hero = () => {
         <div className="flex-1">
           <BlurText
             text="Samir Elkasar"
-            delay={100}
-            animateBy="letters"
+            delay={80}
+            animateBy="words"
             direction="top"
             className={`text-4xl md:text-5xl font-extrabold text-foreground flex flex-wrap ${calistoga.className}`}
           />

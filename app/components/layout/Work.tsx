@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { Calistoga } from "next/font/google";
 import BlurText from "@/app/components/ui/BlurText";
-import { motion, Variants, useScroll, useSpring, useTransform } from "framer-motion";
+import { motion, Variants, useScroll, useSpring, useTransform, delay } from "framer-motion";
 
 const calistoga = Calistoga({
     subsets: ["latin"],
@@ -34,7 +34,7 @@ const itemVariants: Variants = {
         x: 0,
         filter: "blur(0px)",
         transition: {
-            delay: i * 0.2,
+            delay: i * 0.2 + 0.6,
             duration: 0.8,
             ease: [0.16, 1, 0.3, 1]
         }
@@ -58,15 +58,22 @@ const Work = () => {
     return (
         <section id="experience" className="relative">
             <div className="max-w-3xl mx-auto py-12 px-6 sm:px-4 relative z-10">
-                <BlurText
-                    text="Experience"
-                    delay={100}
-                    animateBy="words"
-                    direction="top"
-                    className={`text-3xl font-semibold font-calistoga ${calistoga.className}`}/>
+                <motion.div
+                    initial={{opacity: 0, filter: "blur(2px)"}}
+                    whileInView={{opacity: 1, filter: "blur(0px)"}}
+                    transition={{delay: 0.8, duration: 0.8}}
+                >
+                    <BlurText
+                        text="Experience"
+                        delay={100}
+                        animateBy="words"
+                        direction="top"
+                        className={`text-3xl font-semibold font-calistoga ${calistoga.className}`}/>
+                </motion.div>
+
 
                 <div ref={containerRef} className="relative mt-8 space-y-12">
-                    <div className="absolute left-[7px] md:left-[7px] top-2 -bottom-4 w-[2px]">
+                    <div className="absolute left-1.75 md:left-1.75 top-2 -bottom-4 w-0.5">
                         <motion.div
                             style={{ scaleY, originY: 0 }}
                             className="w-full h-full bg-primary shadow-[0_0_12px_var(--primary)]"/>
